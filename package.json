@@ -1,0 +1,47 @@
+{
+		"name": "chattie",
+		"version": "1.0.0",
+		"description": "",
+		"main": "index.js",
+		"scripts": {
+				"start": "parcel assets/index.html"
+		},
+		"repository": {
+				"type": "git",
+				"url": "git+https://github.com/tehSLy/chattie.git"
+		},
+		"author": "",
+		"license": "ISC",
+		"bugs": {
+				"url": "https://github.com/tehSLy/chattie/issues"
+		},
+		"homepage": "https://github.com/tehSLy/chattie#readme",
+		"dependencies": {
+				"@material-ui/core": "^3.9.3",
+				"@material-ui/icons": "^3.0.2",
+				"@mdi/js": "^3.6.95",
+				"@mdi/react": "^1.1.1",
+				"axios": "^0.18.0",
+				"effector": "^0.18.10",
+				"effector-react": "^0.18.10",
+				"notistack": "^0.8.5",
+				"parcel-bundler": "^1.12.3",
+				"react": "^16.8.6",
+				"react-dom": "^16.8.6",
+				"react-router-dom": "^5.0.0",
+				"styled-components": "^4.2.0",
+				"typescript": "^3.5.0-dev.20190425"
+		},
+		"devDependencies": {
+				"@types/react": "^16.8.14",
+				"@types/react-dom": "^16.8.4",
+				"@types/react-router-dom": "^4.3.3",
+				"@types/styled-components": "^4.1.15",
+				"express": "^4.17.0",
+				"http-proxy-middleware": "^0.19.1"
+		},
+		"typings": "./src/@types/index.d.ts",
+		"browserslist": [
+				"since 2017-06"
+		]
+}
