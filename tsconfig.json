@@ -6,7 +6,12 @@
 		"jsx": "react",
 		"baseUrl": ".",
 		"paths": {
-			"@assets": ["./assets/*"]
+			"~ui/*": ["src/ui/*"],
+			"~feautures/*": ["src/feautures/*"],
+			"~lib/*": ["src/lib/*"],
+			"~api/*": ["src/api/*"],
+			"~types/*": ["src/@types/*"],
+			"~/*": ["src/*"],
 		}
 	}
 }
