@@ -3,6 +3,15 @@
 		"target": "es2017",
 		"module": "commonjs",
 		"strict": true,
-		"jsx": "react"
+		"jsx": "react",
+		"baseUrl": ".",
+		"paths": {
+			"~ui/*": ["src/ui/*"],
+			"~feautures/*": ["src/feautures/*"],
+			"~lib/*": ["src/lib/*"],
+			"~api/*": ["src/api/*"],
+			"~types/*": ["src/@types/*"],
+			"~/*": ["src/*"],
+		}
 	}
 }

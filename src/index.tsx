@@ -1,7 +1,15 @@
-import { sleep } from "./lib/sleep/index";
 import * as React from "react";
 import { render } from "react-dom";
-import { GeneralLayout } from "./ui/layouts/GeneralLayout";
+import { ChatPanel } from "~feautures/messaging/organisms/ChatPanel";
+import { fetchChats } from "~feautures/messaging/model/chats";
 
-const target = document.getElementById("root");
-render(<GeneralLayout>Hax!</GeneralLayout>, target);
+fetchChats();
+
+const target = document.createElement("div");
+render(
+	<div>
+		<ChatPanel />
+	</div>,
+	target
+);
+document.body.appendChild(target);
