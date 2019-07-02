@@ -1,4 +1,4 @@
-import { Paper, Typography, makeStyles } from "@material-ui/core";
+import { makeStyles, Paper, Typography } from "@material-ui/core";
 import { useStore } from "effector-react";
 import * as React from "react";
 import { $activeChatMessages } from "../model/activeChat";
@@ -10,7 +10,7 @@ export const MessagesList = () => {
 	return (
 		<Paper square elevation={0} className={cls.wrapper}>
 			{messages.length ? (
-				messages.map((message) => <div>{message}</div>)
+				messages.map((message) => <Paper className={cls.message}>{message}</Paper>)
 			) : (
 				<Typography variant="caption" color="textSecondary">
 					Нет сообщений
@@ -22,6 +22,13 @@ export const MessagesList = () => {
 
 const useStyles = makeStyles((t) => ({
 	wrapper: {
-		flexGrow: 1
+		flexGrow: 1,
+		display: "flex",
+		flexDirection: "column"
+	},
+	message: {
+		margin: t.spacing(1),
+		alignSelf: "start",
+		padding: t.spacing(1)
 	}
 }));

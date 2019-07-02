@@ -2,14 +2,26 @@ import { InputBase, makeStyles } from "@material-ui/core";
 import { createEvent } from "effector";
 import { useStore } from "effector-react";
 import * as React from "react";
+import { sendMessage } from "../model";
 import { $currentMessage, messageChanged, sendCurrentMessage } from "../model/currentMessage";
+import { $activeChatId } from "../model/activeChat";
 
 export const MessageTextArea = () => {
 	const value = useStore($currentMessage);
 	const cls = useStyles();
+	const ref = React.useRef<HTMLInputElement>();
+	const activeChat = useStore($activeChatId);
+
+	const focus = () => ref.current && ref.current.focus();
+	React.useEffect(() => sendMessage.watch(focus), []);
+	React.useEffect(() => {
+		focus();
+	}, [activeChat]);
 
 	return (
 		<InputBase
+			autoFocus
+			inputRef={(el) => (ref.current = el)}
 			value={value}
 			onChange={handleChange}
 			placeholder="Write a message..."

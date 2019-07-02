@@ -7,4 +7,4 @@ export const $currentMessage = createStore<string>("")
 	.on(messageChanged, (_, msg) => msg)
 	.reset(sendMessage);
 
-export const sendCurrentMessage = sampleFrom($currentMessage, sendMessage);
+export const sendCurrentMessage = sampleFrom($currentMessage, (msg) => (msg ? sendMessage(msg) : null));
