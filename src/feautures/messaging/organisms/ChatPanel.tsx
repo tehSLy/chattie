@@ -1,4 +1,5 @@
 import { Divider, makeStyles, Paper } from "@material-ui/core";
+import { createEvent, createStore, sample, restore } from "effector";
 import { useStore } from "effector-react";
 import * as React from "react";
 import { ChatsList } from "../atoms/ChatsList";
@@ -12,21 +13,27 @@ export const ChatPanel = () => {
 
 	return (
 		<Paper className={cls.outerWrapper} square elevation={0}>
-			<ChatsList />
+			<ChatsList/>
 			<Paper className={cls.innerWrapper} square elevation={0}>
-				{activeId ? <><MessagesList />
-				<Divider />
-				<MessagePanel /></> : "Выберите чат"}
+				{activeId ? (
+					<>
+						<MessagesList />
+						<Divider />
+						<MessagePanel />
+					</>
+				) : (
+					"Выберите чат"
+				)}
 			</Paper>
 		</Paper>
 	);
 };
 
+
 const useStyles = makeStyles((t) => ({
 	innerWrapper: {
 		display: "flex",
-		flexDirection: "column",
-		borderLeft: `solid 1px ${t.palette.divider}`
+		flexDirection: "column"
 	},
 	outerWrapper: {
 		display: "inline-flex",
