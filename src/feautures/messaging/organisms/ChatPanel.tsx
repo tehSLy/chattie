@@ -1,11 +1,11 @@
 import { Divider, makeStyles, Paper } from "@material-ui/core";
-import { createEvent, createStore, sample, restore } from "effector";
 import { useStore } from "effector-react";
 import * as React from "react";
-import { ChatsList } from "../atoms/ChatsList";
+import { ChatsList } from "../atoms/ChatsList/";
 import { MessagesList } from "../atoms/MessagesList";
 import { $activeChatId } from "../model/activeChat";
 import { MessagePanel } from "../molecules/MessagePanel";
+import { $chats } from "../model/chats";
 
 export const ChatPanel = () => {
 	const cls = useStyles();
@@ -13,7 +13,7 @@ export const ChatPanel = () => {
 
 	return (
 		<Paper className={cls.outerWrapper} square elevation={0}>
-			<ChatsList/>
+			<ChatsList />
 			<Paper className={cls.innerWrapper} square elevation={0}>
 				{activeId ? (
 					<>
@@ -29,15 +29,17 @@ export const ChatPanel = () => {
 	);
 };
 
-
 const useStyles = makeStyles((t) => ({
 	innerWrapper: {
 		display: "flex",
-		flexDirection: "column"
+		flexDirection: "column",
+		flexGrow: 1,
+		justifyContent: "stretch"
 	},
 	outerWrapper: {
 		display: "inline-flex",
 		flexDirection: "row",
-		border: `solid 1px ${t.palette.divider}`
+		border: `solid 1px ${t.palette.divider}`,
+		flexGrow: 1
 	}
 }));

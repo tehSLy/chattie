@@ -21,6 +21,10 @@ export const MessageTextArea = () => {
 	return (
 		<InputBase
 			autoFocus
+			inputComponent="textarea"
+			inputProps={{
+				className: cls.inputElement
+			}}
 			inputRef={(el) => (ref.current = el)}
 			value={value}
 			onChange={handleChange}
@@ -34,7 +38,13 @@ export const MessageTextArea = () => {
 
 const useStyles = makeStyles((t) => ({
 	input: {
-		height: "1.1875em"
+		height: "1.1875em",
+		fontSize: t.spacing(1.5),
+		display: "flex",
+		flexGrow: 1
+	},
+	inputElement: {
+		resize: 'none',
 	}
 }));
 
