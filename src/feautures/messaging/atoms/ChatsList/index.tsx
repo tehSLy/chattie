@@ -44,12 +44,12 @@ const useStyles = makeStyles((t) => ({
 		marginTop: t.spacing(1)
 	},
 	verticalDivider: {
-		borderLeft: `1px solid ${t.palette.divider}`,
-		//borderRight: `1px solid ${t.palette.divider}`,
+		// borderLeft: `1px solid ${t.palette.divider}`,
+		borderRight: `1px solid ${t.palette.divider}`,
+		marginLeft: "-4px",
 		width: "4px",
 		cursor: "col-resize",
 		userSelect: "none",
-		marginLeft: "auto"
 	},
 	chatsWrapper: {
 		display: "flex",
