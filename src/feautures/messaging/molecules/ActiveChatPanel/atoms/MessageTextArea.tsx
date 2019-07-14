@@ -2,9 +2,9 @@ import { InputBase, makeStyles } from "@material-ui/core";
 import { createEvent } from "effector";
 import { useStore } from "effector-react";
 import * as React from "react";
-import { sendMessage } from "../model";
-import { $activeChatId } from "../model/activeChat";
-import { $currentMessage, messageChanged, sendCurrentMessage } from "../model/currentMessage";
+import { sendMessage } from "../../../model";
+import { $activeChatId } from "../../../model/activeChat";
+import { $currentMessage, messageChanged, sendCurrentMessage } from "../../../model/currentMessage";
 
 export const MessageTextArea = () => {
 	const value = useStore($currentMessage);

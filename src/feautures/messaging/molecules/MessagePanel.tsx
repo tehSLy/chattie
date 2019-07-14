@@ -1,7 +1,7 @@
 import { Paper, makeStyles } from '@material-ui/core';
 import * as React from 'react';
-import { MessageTextArea } from '../atoms/MessageTextArea';
-import { SendMessageButton } from '../atoms/SendMessageButton';
+import { MessageTextArea } from './ActiveChatPanel/atoms/MessageTextArea';
+import { SendMessageButton } from './ActiveChatPanel/atoms/SendMessageButton';
 
 export const MessagePanel = () => {
 	const cls = useStyles();

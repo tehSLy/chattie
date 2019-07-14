@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createStore } from 'effector';
-import { message } from '../model';
+import { message } from '../../../model';
 import { useStore } from 'effector-react';
 
 export const LastMessage = () => {

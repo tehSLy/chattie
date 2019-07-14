@@ -11,13 +11,21 @@ type State = { [key: string]: Chat };
 const mockChats: State = {
 	1: {
 		id: "1",
-		messages: [],
-		participants: []
+		messages: [{
+			author: {
+				id: "1",
+				name: "Henry"
+			},
+			body: "oh hi mark!",
+			attachments: []
+		}],
+		participants: [{id: "1", name: "Henry"}, {id: "1337", name: "Me"}]
 	},
 	2: {
 		id: "2",
 		messages: [],
-		participants: []
+		participants: [{id: "1", name: "Henry"}, {id: "2", name: "John Doe"}, {id: "1337", name: "Me"}],
+		name: "Fellow guys"
 	}
 };
 

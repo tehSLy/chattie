@@ -3,7 +3,6 @@ import { useStore } from "effector-react";
 import * as React from "react";
 import { $chats } from "~feautures/messaging/model/chats";
 import { $width, $widthCollapsed, mouseEvent, mouseMove } from "./model";
-import { setActiveChat } from "~feautures/messaging/model/activeChat";
 import { ChatsListItem } from "./atoms/ChatsListItem";
 
 export const ChatsList = () => {
@@ -12,15 +11,6 @@ export const ChatsList = () => {
 	const width = useStore($width);
 	const collapsed = useStore($widthCollapsed);
 
-	React.useEffect(() => {
-		document.addEventListener("mouseup", mouseEvent);
-		document.addEventListener("mousemove", mouseMove);
-		return () => {
-			document.removeEventListener("mouseup", mouseEvent);
-			document.removeEventListener("mousemove", mouseMove);
-		};
-	}, []);
-
 	return (
 		<div className={cls.wrapper}>
 			<div className={collapsed ? cls.chatsCollapsed : cls.chatsWrapper}  style={{ width }}>
@@ -28,7 +18,6 @@ export const ChatsList = () => {
 					<ChatsListItem id={key}/>
 				))}
 			</div>
-			<div className={cls.verticalDivider} onMouseDown={mouseEvent} />
 		</div>
 	);
 };

@@ -1,10 +1,12 @@
-import { makeStyles, Paper, Avatar, ButtonBase } from "@material-ui/core";
-import { useStoreMap, useStore } from "effector-react";
+import { Avatar, ButtonBase, makeStyles, Paper } from "@material-ui/core";
+import { useStore, useStoreMap } from "effector-react";
 import * as React from "react";
-import { $chats } from "~feautures/messaging/model/chats";
-import { minWidth } from "../model/minWidth";
-import { $widthCollapsed } from "../model";
 import { $activeChatId, setActiveChat } from "~feautures/messaging/model/activeChat";
+import { $chats } from "~feautures/messaging/model/chats";
+import { getChatName } from "~lib/chat";
+import { $widthCollapsed } from "../model";
+import { minWidth } from "../model/minWidth";
+import { initials } from "~lib/initials";
 
 type Props = {
 	id: string;
@@ -16,19 +18,21 @@ export const ChatsListItem = ({ id }: Props) => {
 		keys: [id],
 		fn: (chats, [id]) => chats[id]
 	});
+
+	const name = React.useMemo(() => getChatName(chat), [chat]);
+	const shortName = React.useMemo(() => initials(name), [name]);
+
 	const collapsed = useStore($widthCollapsed);
-	const active = useStore($activeChatId)
+	const active = useStore($activeChatId);
 	const isActive = active === id;
 
 	return (
 		<Paper className={cls.wrapper} elevation={0} square>
-			<ButtonBase className={isActive ? cls.buttonActive : cls.button} onClick={() => setActiveChat(id)} >
-			<div className={cls.avatarWrapper}>
-				<Avatar>{chat.id}</Avatar>
-			</div>
-			{collapsed ? null : <div className={cls.chatData}>
-				Helo there!
-			</div>}
+			<ButtonBase className={isActive ? cls.buttonActive : cls.button} onClick={() => setActiveChat(id)}>
+				<div className={cls.avatarWrapper}>
+					<Avatar>{shortName}</Avatar>
+				</div>
+				{collapsed ? null : <div className={cls.chatData}>{name}</div>}
 			</ButtonBase>
 		</Paper>
 	);
@@ -40,13 +44,11 @@ const useStyles = makeStyles((t) => ({
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center"
-	
 	},
 	wrapper: {
 		height: minWidth,
 		width: "100%",
-		display: "flex",
-		// alignItems: "stretch"
+		display: "flex"
 	},
 	button: {
 		display: "flex",
@@ -58,6 +60,7 @@ const useStyles = makeStyles((t) => ({
 		backgroundColor: t.palette.primary.light
 	},
 	chatData: {
-		flexGrow: 1
+		flexGrow: 1,
+		textAlign: "left"
 	}
 }));
