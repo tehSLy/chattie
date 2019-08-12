@@ -1,8 +1,9 @@
-import { Paper, Typography } from "@material-ui/core";
+import { Paper, Typography, IconButton } from "@material-ui/core";
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { ActiveChatName } from "./atoms/ActiveChatName";
 import { ActiveChatTitle } from "./atoms/ActiveChatTitle";
+import { MoreVert } from "@material-ui/icons";
 
 export const ActiveChatHeading = () => {
 
@@ -17,7 +18,7 @@ export const ActiveChatHeading = () => {
 					<ActiveChatTitle />
 				</Typography>
 			</DataWrapper>
-			<div>Tools!</div>
+			<IconButton size="small"><MoreVert /></IconButton>
 		</Wrapper>
 	);
 };
@@ -25,6 +26,7 @@ export const ActiveChatHeading = () => {
 const Wrapper = styled(Paper)`
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	border-bottom: 1px solid ${({ theme }) => theme.palette.divider};
 `;
 

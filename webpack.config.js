@@ -1,7 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const Dotenv = require("dotenv-webpack");
-const _ = require("dotenv").config();
+// const _ = require("dotenv").config();
 
 /*
  * SplitChunksPlugin is enabled by default and replaced
@@ -78,7 +78,8 @@ module.exports = {
 	devServer: {
 		open: true,
 		proxy: {
-			"/api": process.env.API_URL
+			"/api": process.env.API_URL,
+			"/websocket": process.env.WS_URL
 		},
 		historyApiFallback: true
 	},

@@ -1,17 +1,7 @@
-import { createEvent, createStore } from "effector";
-import { webSocketConnection } from "~api/webSocket";
+import { connectionModel } from "~api/model";
 
-export const statusChanged = createEvent<Event>().filter({
-	fn: ({ type }) => type !== "message"
-});
+export const statusChanged = connectionModel.statusChanged;
 
-export const error = createEvent<Event>();
+export const error = connectionModel.error;
 
-export const $connectionStatus = createStore<keyof WebSocketEventMap>("close").on(
-	statusChanged,
-	(_, { type }) => type as any
-);
-
-webSocketConnection.onopen = statusChanged;
-webSocketConnection.onclose = statusChanged;
-webSocketConnection.onerror = error;
+export const $connectionStatus = connectionModel.$status;

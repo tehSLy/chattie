@@ -5,7 +5,7 @@ import { sampleFrom } from "~lib/effector/sampleFrom";
 
 const setTheme = createEvent<ThemeName>();
 
-const $themeName = createStore<ThemeName>("light")
+export const $themeName = createStore<ThemeName>("light")
 	.on(setTheme, getEventResult);
 
 export const [toggleTheme, themeToggled] = sampleFrom($themeName, (last) => last === "dark" ? "light" : "dark");

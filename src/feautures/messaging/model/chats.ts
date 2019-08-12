@@ -25,7 +25,7 @@ const mockChats: State = {
 		id: "2",
 		messages: [],
 		participants: [{id: "1", name: "Henry"}, {id: "2", name: "John Doe"}, {id: "1337", name: "Me"}],
-		name: "Fellow guys"
+		name: "Fellow guys, which have a very goddamn long chat name!s"
 	}
 };
 

@@ -48,19 +48,25 @@ const useStyles = makeStyles((t) => ({
 	wrapper: {
 		height: minWidth,
 		width: "100%",
-		display: "flex"
+		display: "flex",
 	},
 	button: {
 		display: "flex",
-		flexGrow: 1
+		flexGrow: 1,
+		width: "100%"
 	},
 	buttonActive: {
 		display: "flex",
 		flexGrow: 1,
-		backgroundColor: t.palette.primary.light
+		backgroundColor: t.palette.primary.light,
+		width: "100%"
 	},
 	chatData: {
 		flexGrow: 1,
-		textAlign: "left"
+		textAlign: "left",
+		width: `calc(100% - ${minWidth}px)`,
+		overflow: "hidden",
+		textOverflow: "ellipsis",
+		whiteSpace: "nowrap"
 	}
 }));

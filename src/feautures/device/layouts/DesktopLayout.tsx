@@ -1,10 +1,10 @@
-import { Paper } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import { Paper, makeStyles } from "@material-ui/core";
 import * as React from "react";
 import { ActiveChatPanel } from "~feautures/messaging/molecules/ActiveChatPanel";
 import { ChatsList } from "~feautures/messaging/molecules/ActiveChatPanel/atoms/ChatsList";
-import { mouseEvent, mouseMove, $width } from "~feautures/messaging/molecules/ActiveChatPanel/atoms/ChatsList/model";
+import { mouseEvent, mouseMove } from "~feautures/messaging/molecules/ActiveChatPanel/atoms/ChatsList/model";
 import { DesktopHeader } from "../atoms/DesktopHeader";
+import { AppDrawer } from "../molecules/AppDrawer";
 
 export const DesktopLayout = () => {
 	const cls = useStyles();
@@ -19,11 +19,12 @@ export const DesktopLayout = () => {
 
 	return (
 		<Paper className={cls.paper} elevation={0} square>
+			<AppDrawer />
 			<div className={cls.block}>
 				<DesktopHeader />
 				<ChatsList />
 			</div>
-			<div className={cls.verticalDivider} onMouseDown={mouseEvent} />
+			<div className={cls.verticalDivider} onMouseDown={mouseEvent as any} />
 			<ActiveChatPanel />
 		</Paper>
 	);

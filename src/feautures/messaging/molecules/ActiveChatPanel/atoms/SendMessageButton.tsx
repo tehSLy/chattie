@@ -6,4 +6,4 @@ import { $currentMessage } from "../../../model/currentMessage";
 
 export const SendMessageButton = () => <Send color="primary" onClick={submit} />;
 const [submit, submitted] = sampleFrom($currentMessage);
-submitted.watch(sendMessage);
+submitted.filter({ fn: (v) => Boolean(v) }).watch(sendMessage);

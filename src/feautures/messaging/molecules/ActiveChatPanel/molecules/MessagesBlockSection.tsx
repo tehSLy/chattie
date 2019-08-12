@@ -7,9 +7,10 @@ import { $activeChat } from "~feautures/messaging/model/activeChat";
 
 type Props = {
 	idx: number;
+	style?: any;
 };
 
-export const MessagesBlockSection = ({ idx }: Props) => {
+export const MessagesBlockSection = ({ idx, style }: Props) => {
 	const cls = useStyles();
 	const block = useStoreMap({
 		store: $activeChatMessagesBlocks,
@@ -20,7 +21,7 @@ export const MessagesBlockSection = ({ idx }: Props) => {
 	const userVisible = useStore($userVisible);
 
 	return (
-		<div className={cls.wrapper}>
+		<div className={cls.wrapper} style={style}>
 			{block.messages.map((message, id, all) => (
 				<MessageItem message={message} key={id} withAuthor={id === 0 && userVisible} withTail={id === (all.length - 1)}/>
 			))}
