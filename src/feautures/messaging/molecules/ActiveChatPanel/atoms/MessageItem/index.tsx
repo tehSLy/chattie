@@ -34,7 +34,7 @@ export const MessageItem = ({ message, withAuthor, withTail }: Props) => {
 						</Typography>
 					</div>
 				) : null}
-				<Typography variant="body2">{message.body}</Typography>
+				<Typography variant="body2" className={cls.message}>{message.body}</Typography>
 			</Paper>
 		</div>
 	);
@@ -64,5 +64,8 @@ const useStyles = makeStyles((t) => ({
 		display: "grid",
 		gridTemplateColumns: "3em 1fr",
 		alignItems: "end"
+	},
+	message: {
+		wordBreak: "break-word"
 	}
 }));
