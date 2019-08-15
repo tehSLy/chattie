@@ -8,3 +8,4 @@ dist
 dist/*
 package-lock.json
 .env
+public/*
