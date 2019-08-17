@@ -78,7 +78,7 @@ module.exports = {
 	devServer: {
 		open: true,
 		proxy: {
-			"/api": process.env.API_URL,
+			"/api": process.env.HTTP_URL,
 			"/websocket": process.env.WS_URL
 		},
 		historyApiFallback: true
