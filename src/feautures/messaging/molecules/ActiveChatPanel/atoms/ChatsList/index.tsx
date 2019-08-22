@@ -1,9 +1,10 @@
-import { Avatar, ButtonBase, makeStyles } from "@material-ui/core";
+import { Avatar, ButtonBase, makeStyles, Paper } from "@material-ui/core";
 import { useStore } from "effector-react";
 import * as React from "react";
 import { $chats } from "~feautures/messaging/model/chats";
 import { $width, $widthCollapsed, mouseEvent, mouseMove } from "./model";
 import { ChatsListItem } from "./atoms/ChatsListItem";
+import { ConnectionPopup } from "~feautures/common/atoms/ConnectionPopup";
 
 export const ChatsList = () => {
 	const chats = useStore($chats);
@@ -18,9 +19,11 @@ export const ChatsList = () => {
 					<ChatsListItem id={key}/>
 				))}
 			</div>
+			<ConnectionPopup />
 		</div>
 	);
 };
+
 
 const useStyles = makeStyles((t) => ({
 	wrapper: {
@@ -53,6 +56,5 @@ const useStyles = makeStyles((t) => ({
 		flexGrow: 1,
 		alignItems: "center",
 		maxHeight: "100vh"
-
 	}
 }));
