@@ -28,7 +28,7 @@ export const MessagesList = () => {
 		<>
 			<div id={targetId} />
 			<Paper square elevation={0} className={cls.wrapper} ref={(el) => (wrapper.current = el)}>
-				{messages.length ? (
+				{/* {messages.length ? (
 					<AutoSizer>
 						{({ height, width }) => (
 							<VariableSizeList
@@ -46,7 +46,14 @@ export const MessagesList = () => {
 					<Typography variant="caption" color="textSecondary" className={cls.noMessages}>
 						Нет сообщений
 					</Typography>
-				)}
+				)} */}
+				{messages.length ? (
+				blocks.map((_, idx) => <MessagesBlockSection idx={idx} />)
+			) : (
+				<Typography variant="caption" color="textSecondary" className={cls.noMessages}>
+					Нет сообщений
+				</Typography>
+			)}
 			</Paper>
 		</>
 	);

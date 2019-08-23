@@ -1,0 +1,7 @@
+{
+	"build": {
+		"env": {
+			"WS_URL": "@ws_url"
+		}
+	}
+}
