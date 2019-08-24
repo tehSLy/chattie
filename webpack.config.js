@@ -1,7 +1,9 @@
 const path = require("path");
 const webpack = require("webpack");
-const Dotenv = require("dotenv-webpack");
-// const _ = require("dotenv").config();
+//const Dotenv = require("dotenv-webpack");
+const _ = require("dotenv").config();
+
+console.log(process.env.WS_URL)
 
 /*
  * SplitChunksPlugin is enabled by default and replaced
@@ -45,7 +47,8 @@ module.exports = {
 				viewport: "width=device-width, initial-scale=1, shrink-to-fit=no"
 			}
 		}),
-		new Dotenv()
+		new webpack.EnvironmentPlugin(["WS_URL"])
+		//new Dotenv()
 	],
 
 	module: {
